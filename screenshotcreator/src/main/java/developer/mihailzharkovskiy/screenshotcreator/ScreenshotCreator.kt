@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
  * Чтобы понять принцип работы,  в активити или фраменте сделай примерно это:
  * 1) val bitmap = ScreenshotCreator.takeScreenshot(binding.root)
  * 2) ScreenshotUtil.seeScreenshot(bitmap, context)
+ * NB!!! если у какой либо view цвет имеет прозрачность, то
+ * на скриншоте он будет сохранен как цвет без прозрачности
  * **/
 object ScreenshotCreator {
 

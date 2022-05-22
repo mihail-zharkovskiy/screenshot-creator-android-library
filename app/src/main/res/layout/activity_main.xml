@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#8525B89B"
+    android:background="#93F4E1"
     tools:context=".MainActivity">
 
     <TextView
@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:text='Example of useing the library "screenshot creator"'
+        android:text='Example of using the library "screenshot creator"'
         android:textSize="21sp"
         android:textStyle="bold"
         android:textAlignment="center"
