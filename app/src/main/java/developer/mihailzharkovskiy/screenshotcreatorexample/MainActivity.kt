@@ -9,7 +9,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import developer.mihailzharkovskiy.screenshotcreator.ScreenshotCreator
-import developer.mihailzharkovskiy.screenshotcreator.ScreenshotUtil
+import developer.mihailzharkovskiy.screenshotcreator.util.ScreenshotUtil
 import developer.mihailzharkovskiy.screenshotcreator.screenshot_save.SaveTo
 import developer.mihailzharkovskiy.screenshotcreator.screenshot_save.ScreenshotSave
 import developer.mihailzharkovskiy.screenshotcreatorexample.databinding.ActivityMainBinding
