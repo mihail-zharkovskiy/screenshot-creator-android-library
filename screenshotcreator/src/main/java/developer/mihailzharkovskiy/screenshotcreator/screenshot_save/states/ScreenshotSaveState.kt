@@ -1,4 +1,4 @@
-package developer.mihailzharkovskiy.screenshotcreator.screenshot_save.internal_storage.states
+package developer.mihailzharkovskiy.screenshotcreator.screenshot_save.states
 
 sealed class ScreenshotSaveState() {
     object Success : ScreenshotSaveState()
