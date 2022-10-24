@@ -8,10 +8,11 @@ import android.os.Bundle
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import developer.mihailzharkovskiy.screenshotcreator.ScreenshotCreator
-import developer.mihailzharkovskiy.screenshotcreator.util.ScreenshotUtil
 import developer.mihailzharkovskiy.screenshotcreator.screenshot_save.SaveTo
 import developer.mihailzharkovskiy.screenshotcreator.screenshot_save.ScreenshotSave
+import developer.mihailzharkovskiy.screenshotcreator.util.ScreenshotUtil
 import developer.mihailzharkovskiy.screenshotcreatorexample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -30,8 +31,16 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.recyclerView.apply {
+            adapter = Adapter()
+            layoutManager = LinearLayoutManager(this@MainActivity)
+        }
+
         binding.btTakeScreenshot.setOnClickListener {
             screenshot = ScreenshotCreator.takeScreenshot(binding.root)
+        }
+        binding.btTakeScreenshotRv.setOnClickListener {
+            screenshot = ScreenshotCreator.takeScreenshot(binding.recyclerView)
         }
         binding.btViewScreenshot.setOnClickListener {
             screenshot?.let { bitmap -> ScreenshotUtil.viewScreenshot(bitmap, this) }
@@ -39,8 +48,7 @@ class MainActivity : AppCompatActivity() {
         binding.btSaveScreenshot.setOnClickListener {
             screenshot?.let {
                 if (checkPermission()) {
-                    ScreenshotSave
-                        .save(SaveTo.ExternalStorage("example", it), contentResolver, this)
+                    ScreenshotSave.save(SaveTo.ExternalStorage("example", it), contentResolver, this)
                 } else requestPermission()
             }
         }
@@ -53,6 +61,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun requestPermission() {
+        // TODO доработать запрос разрешений и сохранение для android 11 и больше
         ActivityCompat.requestPermissions(this, arrayOf(perWrite, perRead), perRequestCode)
     }
 }
