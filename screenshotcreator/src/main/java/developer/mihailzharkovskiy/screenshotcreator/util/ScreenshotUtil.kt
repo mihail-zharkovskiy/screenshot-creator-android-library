@@ -1,4 +1,4 @@
-package developer.mihailzharkovskiy.screenshotcreator
+package developer.mihailzharkovskiy.screenshotcreator.util
 
 import android.content.Context
 import android.graphics.Bitmap

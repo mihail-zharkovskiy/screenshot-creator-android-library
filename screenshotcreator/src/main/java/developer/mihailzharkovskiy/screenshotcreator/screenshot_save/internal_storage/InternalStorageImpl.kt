@@ -9,7 +9,7 @@ import developer.mihailzharkovskiy.screenshotcreator.screenshot_save.internal_st
 import developer.mihailzharkovskiy.screenshotcreator.screenshot_save.internal_storage.states.GetAllScreenshotsState
 import developer.mihailzharkovskiy.screenshotcreator.screenshot_save.internal_storage.states.GetScreenshotState
 import developer.mihailzharkovskiy.screenshotcreator.screenshot_save.internal_storage.states.ScreenshotDeleteState
-import developer.mihailzharkovskiy.screenshotcreator.screenshot_save.internal_storage.states.ScreenshotSaveState
+import developer.mihailzharkovskiy.screenshotcreator.screenshot_save.states.ScreenshotSaveState
 import java.io.File
 import java.io.IOException
 

@@ -5,7 +5,7 @@ import android.content.ContentResolver
 import android.graphics.Bitmap
 import androidx.annotation.RequiresPermission
 import androidx.annotation.WorkerThread
-import developer.mihailzharkovskiy.screenshotcreator.screenshot_save.external_staorage.states.SaveToExternalStorageState
+import developer.mihailzharkovskiy.screenshotcreator.screenshot_save.states.ScreenshotSaveState
 
 interface ExternalStorage {
 
@@ -15,5 +15,5 @@ interface ExternalStorage {
         name: String,
         screenshot: Bitmap,
         resolver: ContentResolver,
-    ): SaveToExternalStorageState
+    ): ScreenshotSaveState
 }

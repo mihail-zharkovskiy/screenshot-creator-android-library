@@ -9,7 +9,7 @@ import android.os.Build
 import android.provider.MediaStore
 import androidx.annotation.RequiresPermission
 import androidx.annotation.WorkerThread
-import developer.mihailzharkovskiy.screenshotcreator.screenshot_save.external_staorage.states.SaveToExternalStorageState
+import developer.mihailzharkovskiy.screenshotcreator.screenshot_save.states.ScreenshotSaveState
 import java.io.IOException
 
 class ExternalStorageImpl : ExternalStorage {
@@ -20,7 +20,7 @@ class ExternalStorageImpl : ExternalStorage {
         name: String,
         screenshot: Bitmap,
         resolver: ContentResolver,
-    ): SaveToExternalStorageState {
+    ): ScreenshotSaveState {
 
         val image = getUriForSave()
         val imageValues = createContentValues(name, screenshot)
@@ -29,13 +29,13 @@ class ExternalStorageImpl : ExternalStorage {
             resolver.insert(image, imageValues)?.let { uri ->
                 resolver.openOutputStream(uri).use { stream ->
                     val result = screenshot.compress(Bitmap.CompressFormat.JPEG, 95, stream)
-                    if (result) SaveToExternalStorageState.Success
-                    else SaveToExternalStorageState.Error("couldn't save screenshot, error compress")
+                    if (result) ScreenshotSaveState.Success
+                    else ScreenshotSaveState.Error("couldn't save screenshot, error compress")
                 }
-            } ?: SaveToExternalStorageState.Error("couldn't save screenshot, uri == null")
+            } ?: ScreenshotSaveState.Error("couldn't save screenshot, uri == null")
         } catch (e: IOException) {
             e.printStackTrace()
-            SaveToExternalStorageState.Error(e.message ?: "couldn't save screenshot")
+            ScreenshotSaveState.Error(e.message ?: "couldn't save screenshot")
         }
     }
 
